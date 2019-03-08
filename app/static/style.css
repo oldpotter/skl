@@ -1,0 +1,13 @@
+.rili-box{
+
+}
+
+.rili-row-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.rili-row-2{
+
+}

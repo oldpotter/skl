@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 rili-box" style="text-align: center">
+            <div class="rili-row-1">
+                <div>公历{{ rili.data.year }}年{{ rili.data.month }}月</div>
+                <div>农历{{ rili.data.cyclicalYear }}年{{ rili.data.cyclicalMonth }}月</div>
+            </div>
+            <div class="rili-row-2">
+                <div style="font-size: 200px">
+                    {{ rili.data.day }}
+                </div>
+            </div>
+            <div class="rili-row-1">
+                <div>{{ rili.data.week }}</div>
+                <div>{{ rili.data.cyclicalDay }}日</div>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+{% endblock %}

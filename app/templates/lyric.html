@@ -1,0 +1,28 @@
+{% from 'bootstrap/pagination.html' import render_pager %}
+{% extends 'base.html' %}
+
+{% block content %}
+    <table class="table table-hover">
+        <caption>歌词列表</caption>
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">歌名</th>
+            <th scope="col">所在专辑</th>
+            <th scope="col">歌手</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for lyric in lyrics %}
+            <tr>
+                <td>{{ lyric.song }}</td>
+                <td>{{ lyric.album }}</td>
+                <td>{{ lyric.artist }}</td>
+                <td><a href="{{ url_for('lyric.detail', id=lyric.id) }}">查看歌词</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ render_pager(pagination, prev='上一页', next='下一页', align='right') }}
+
+{% endblock %}
