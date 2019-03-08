@@ -2,6 +2,9 @@
 
 {% block content %}
     {% for item in items %}
-        <span>{{ item }}</span><br>
+        <span>{{ item }}</span>
+        {% if loop.index % 5 == 0 %}
+            <br>
+        {% endif %}
     {% endfor %}
 {% endblock %}
