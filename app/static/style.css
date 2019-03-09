@@ -11,3 +11,11 @@
 .rili-row-2{
 
 }
+
+.lyric-content{
+    background: lightblue;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 100%;
+}
