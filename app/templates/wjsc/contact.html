@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    {% if form %}
+        {{ render_form(form) }}
+    {% else %}
+        城市：{{ contact.city }}<br>
+        详情：{{ contact.detail }}
+    {% endif %}
+    <a href="{{ url_for('wjsc.contacts') }}" class="btn btn-primary" role="button">返回列表</a>
+    {% if id %}
+        <a href="{{ url_for('wjsc.delete_contact', id=id) }}" class="btn btn-danger" role="button">删除</a>
+    {% endif %}
+{% endblock %}

@@ -19,3 +19,7 @@
     flex-wrap: wrap;
     max-height: 100%;
 }
+
+.col-text-center{
+    text-align: center;
+}
