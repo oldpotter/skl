@@ -11,7 +11,7 @@
         <caption>信息列表</caption>
         <thead class="table-primary">
         <tr>
-            <th scope="col">城市</th>
+            <th scope="col">标题</th>
             <th scope="col">详情</th>
             <th scope="col"></th>
         </tr>
@@ -19,7 +19,7 @@
         <tbody>
         {% for contact in contacts %}
             <tr>
-                <td class="col-text-center">{{ contact.city }}</td>
+                <td class="col-text-center">{{ contact.title }}</td>
                 <td class="col-text-center">{{ contact.detail }}</td>
                 <td><a href="{{ url_for('wjsc.contact', id=contact.id) }}">详情</a></td>
                 {% if current_user.is_authenticated %}

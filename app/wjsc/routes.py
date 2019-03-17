@@ -27,7 +27,7 @@ def contacts():
 def add_contact():
     form = ContactForm()
     if form.validate_on_submit():
-        contact = Contact(city=form.city.data, detail=form.detail.data)
+        contact = Contact(title=form.title.data, detail=form.detail.data, type=form.type.data)
         db.session.add(contact)
         db.session.commit()
         flash(u'添加成功')
@@ -38,10 +38,11 @@ def add_contact():
 @bp.route('/edit_contact/<id>', methods=['GET', 'POST'])
 def edit_contact(id):
     contact = Contact.query.get(id)
-    form = ContactForm(city=contact.city, detail=contact.detail)
+    form = ContactForm(title=contact.title, detail=contact.detail, type=form.type.data)
     if form.validate_on_submit():
-        contact.city = form.city.data
+        contact.title = form.title.data
         contact.detail = form.detail.data
+        contact.type = form.type.data
         db.session.commit()
         flash(u'修改成功')
         return redirect(url_for('wjsc.edit_contact', id=id))
@@ -51,7 +52,7 @@ def edit_contact(id):
 @bp.route('/detail/<id>', methods=['GET'])
 def contact(id):
     contact = Contact.query.get(id)
-    return render_template('wjsc/contact.html', title=u'信息详情', contact=contact)
+    return render_template('wjsc/contact_view.html', title=u'信息详情', contact=contact)
 
 
 @bp.route('/delete_contact/<id>', methods=['GET'])
