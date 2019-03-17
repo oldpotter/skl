@@ -27,10 +27,20 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
 
+'''
+1: 茶会信息
+2: 读经地信息
+'''
+class ContactType:
+    CH = 0
+    DJD = 1
+
 class Contact(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    city = db.Column(db.String(20), index=True, unique=True)
+    title = db.Column(db.String(500))
     detail = db.Column(db.Text)
+    type = db.Column(db.Integer)
+
 
 @login.user_loader
 def load_user(id):
