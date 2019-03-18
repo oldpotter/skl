@@ -38,7 +38,7 @@ def add_contact():
 @bp.route('/edit_contact/<id>', methods=['GET', 'POST'])
 def edit_contact(id):
     contact = Contact.query.get(id)
-    form = ContactForm(title=contact.title, detail=contact.detail, type=form.type.data)
+    form = ContactForm(title=contact.title, detail=contact.detail, type=contact.type)
     if form.validate_on_submit():
         contact.title = form.title.data
         contact.detail = form.detail.data
