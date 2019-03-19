@@ -10,11 +10,13 @@
         <h3>{{ contact.title }}</h3>
         <br><br>
         <span style="white-space:pre-line;">{{ contact.detail }}</span>
-
     {% endif %}
     <br>
     {% if id %}
         <a href="{{ url_for('wjsc.contacts') }}" class="btn btn-primary" role="button">返回列表</a>
         <a href="{{ url_for('wjsc.delete_contact', id=id) }}" class="btn btn-danger" role="button">删除</a>
     {% endif %}
+{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/test.js') }}"></script>
 {% endblock %}
