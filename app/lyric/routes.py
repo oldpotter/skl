@@ -11,7 +11,7 @@ from app.models import Lyric
 @bp.route('/', methods=['POST', 'GET'])
 def index():
     page = request.args.get('page', 1, type=int)
-    pagination = Lyric.query.order_by(Lyric.id).paginate(page, current_app.config['LYRIC_PER_PAGE'], False)
+    pagination = Lyric.query.order_by(Lyric.id.desc()).paginate(page, current_app.config['LYRIC_PER_PAGE'], False)
     return render_template('lyric.html', title=u'歌词', lyrics=pagination.items, pagination=pagination)
 
 
