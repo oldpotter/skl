@@ -28,6 +28,9 @@ def create_app():
     from rili import bp
     app.register_blueprint(bp, url_prefix='/rili')
 
+    from jianli import bp as jianli_bp
+    app.register_blueprint(jianli_bp, url_prefix='/jianli')
+
     from sishuwujing import bp as sswj_bp
     app.register_blueprint(sswj_bp, url_prefix='/sswj')
 
